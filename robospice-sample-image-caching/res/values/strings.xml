@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RoboSpice core sample</string>
+    <string name="app_name">RoboSpice image caching sample</string>
 </resources>
