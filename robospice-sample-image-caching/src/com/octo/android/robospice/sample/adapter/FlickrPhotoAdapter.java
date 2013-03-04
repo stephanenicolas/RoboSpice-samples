@@ -48,7 +48,6 @@ public class FlickrPhotoAdapter extends ArrayAdapter<FlickrPhoto> implements Abs
     @Override
     public void onScrollStateChanged(AbsListView absListView, int scrollState) {
 
-        if (scrollState != SCROLL_STATE_FLING && lastScrollState == SCROLL_STATE_FLING)  {
             int firstVisiblePosition = absListView.getFirstVisiblePosition();
             int lastVisiblePosition = absListView.getLastVisiblePosition();
             int numVisiblePositions = lastVisiblePosition - firstVisiblePosition + 1;
@@ -58,7 +57,6 @@ public class FlickrPhotoAdapter extends ArrayAdapter<FlickrPhoto> implements Abs
                 ViewMetaData viewMetaData = (ViewMetaData) visibleItem.getTag();
                 executeImageRequest(adapterItemPosition, viewMetaData);
             }
-        }
         lastScrollState = scrollState;
 
     }
@@ -92,9 +90,7 @@ public class FlickrPhotoAdapter extends ArrayAdapter<FlickrPhoto> implements Abs
             viewMetaData.pendingRequest.cancel();
         }
 
-        if (lastScrollState != SCROLL_STATE_FLING) {
             executeImageRequest(position, viewMetaData);
-        }
 
         return convertView;
     }
